@@ -8,26 +8,26 @@ Thumbs.db
 *.iml
 *.swp
 *.bak
+.windsurf/
 
-# Backend
-music-server/target/
-music-server/logs/
-music-server/*.log
+# Backend (As requested: NOT to be added)
+music-server/
 
-# Frontend
+# SQL (As requested: NOT to be added)
+sql/
+
+# Documents (As requested: NOT to be added)
+*.md
+!README.md
+*.doc
+*.docx
+*.txt
+
+# Root configs
+package.json
+package-lock.json
+
+# Frontend specific
 music-front/node_modules/
 music-front/dist/
-music-front/.DS_Store
 music-front/*.log
-
-# Logs & Temp
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.temp/
-tmp/
-.windsurf/
-beautify.md
-项目需求分析.md
-要求.txt
-*.doc
