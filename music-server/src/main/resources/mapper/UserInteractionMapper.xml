@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.mapper.UserInteractionMapper">
+
+    <select id="selectInteractionWithMusic" resultMap="InteractionWithMusicMap">
+        SELECT 
+            ui.*,
+            m.title as m_title, m.singer_name as m_singer_name, m.album as m_album,
+            m.category as m_category, m.cover_url as m_cover_url, m.file_url as m_file_url, m.duration as m_duration
+        FROM user_interaction ui
+        LEFT JOIN music m ON ui.music_id = m.id
+        WHERE ui.user_id = #{userId}
+        <if test="type == 'favorite'">
+            AND ui.is_favorite = 1
+        </if>
+        <if test="type == 'history'">
+            AND ui.play_count > 0
+        </if>
+        <if test="type == 'rating'">
+            AND ui.rating IS NOT NULL
+        </if>
+        ORDER BY ui.update_time DESC
+    </select>
+
+    <resultMap id="InteractionWithMusicMap" type="com.music.entity.UserInteraction">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="music_id" property="musicId"/>
+        <result column="rating" property="rating"/>
+        <result column="is_favorite" property="isFavorite"/>
+        <result column="play_count" property="playCount"/>
+        <result column="last_play_time" property="lastPlayTime"/>
+        <result column="update_time" property="updateTime"/>
+        <association property="music" javaType="com.music.entity.Music">
+            <id column="music_id" property="id"/>
+            <result column="m_title" property="title"/>
+            <result column="m_singer_name" property="singerName"/>
+            <result column="m_album" property="album"/>
+            <result column="m_category" property="category"/>
+            <result column="m_cover_url" property="coverUrl"/>
+            <result column="m_file_url" property="fileUrl"/>
+            <result column="m_duration" property="duration"/>
+        </association>
+    </resultMap>
+
+</mapper>

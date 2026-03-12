@@ -1,0 +1,33 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build and IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.bak
+
+# Backend
+music-server/target/
+music-server/logs/
+music-server/*.log
+
+# Frontend
+music-front/node_modules/
+music-front/dist/
+music-front/.DS_Store
+music-front/*.log
+
+# Logs & Temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.temp/
+tmp/
+.windsurf/
+beautify.md
+项目需求分析.md
+要求.txt
+*.doc
