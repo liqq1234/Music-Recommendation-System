@@ -14,15 +14,17 @@ Thumbs.db
 # music-server is now included
 
 # SQL Scripts
-# Main scripts in sql/ are included
-# Specifically ignore the deprecated folder
+# Main scripts are included
+# Specifically ignore the deprecated and materials folder
 sql/deprecated/
+资料/
 
 # Documents & Personal Files (As requested: NOT to be added)
 *.md
 !README.md
 *.doc
 *.docx
+*.pdf
 *.txt
 黄晓辉-宋宇-基于Spring Boot的定制音乐推荐系统.md
 黄晓辉-宋宇-基于Spring Boot的定制音乐推荐系.doc
