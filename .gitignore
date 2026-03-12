@@ -10,24 +10,29 @@ Thumbs.db
 *.bak
 .windsurf/
 
-# Backend (As requested: NOT to be added)
-music-server/
+# Backend (REQUIRED)
+# music-server is now included
 
-# SQL (As requested: NOT to be added)
-sql/
+# SQL Scripts
+# Main scripts in sql/ are included
+# Specifically ignore the deprecated folder
+sql/deprecated/
 
-# Documents (As requested: NOT to be added)
+# Documents & Personal Files (As requested: NOT to be added)
 *.md
 !README.md
 *.doc
 *.docx
 *.txt
+黄晓辉-宋宇-基于Spring Boot的定制音乐推荐系统.md
+黄晓辉-宋宇-基于Spring Boot的定制音乐推荐系.doc
 
-# Root configs
+# Root configs (Only front/server have their own)
 package.json
 package-lock.json
 
-# Frontend specific
+# Build Artifacts
+music-server/target/
+music-server/logs/
 music-front/node_modules/
 music-front/dist/
-music-front/*.log

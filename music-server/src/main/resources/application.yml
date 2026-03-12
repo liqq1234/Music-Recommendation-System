@@ -1,0 +1,40 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/music_recommendation?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 4693090li
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 5000
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.music.entity
+
+# JWT 配置
+jwt:
+  secret: MusicRecommendSystemSecretKey2026
+  expiration: 86400000
+
+# 文件上传路径
+file:
+  upload-path: ./uploads/
+
+# 妖狐音乐API配置
+yaohud:
+  api-key: qrV0nZX2T2UYFuzKYuq
+  base-url: https://api.yaohud.cn/api/qqmusic/v2
